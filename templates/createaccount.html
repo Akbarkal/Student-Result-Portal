@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <title>Faculty Portal</title>
+    <style>
+        .header{
+            position: relative;
+            height: 100vh;
+            background: url('{% static './img/bgimage6.jpg'%}'); 
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo lg-heading text-light">
+                Faculty Portal
+            </h1>
+            <ul class="nav-items">
+                <li class="nav-item"><a href="home"><h3>Home</h3></a></li>
+                <li class="nav-item"><a href="faculty"><h3>Faculty Section</h3></a></li>
+                <li class="nav-item"><a href="logout"><h3>Logout</h3></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="header-content">
+        <h1 class="lg-heading text-light">Create Student Account</h1>
+        <form action="create_account" method="post">
+            {% csrf_token %}
+                <input type="text" name="sname" placeholder="Enter Name"  required><br><br>
+                <input type="password" name="spass" placeholder="Enter Password" required><br><br>
+                <input type="number" name="rollno" placeholder="Enter Roll no" required><br><br>
+                <input type="number" name="marks" placeholder="Enter Marks" required><br><br>
+                <input type="submit" value="Create Account" class="btn btn-primary banner text-black">
+            </form>
+            <h2 class="text-red">{{msg}}</h2>
+    </div> 
+</header>
+</body>
+{% endblock body %}

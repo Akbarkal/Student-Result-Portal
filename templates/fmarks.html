@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <title>Faculty Portal</title>
+</head>
+<style>
+    th,td{
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+        padding-right: 40px;
+    }
+    body{
+        position: relative;
+        height: 100vh;
+        background: url('{% static './img/bgimage11.jpg'%}'); 
+        background-position: center;
+        background-size: cover;
+        background-repeat: repeat;
+    }
+</style>
+
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <div class="container">
+                    <h1 class="logo lg-heading text-light">
+                        Faculty Portal
+                    </h1>
+                    <ul class="nav-items">
+                        <li class="nav-item"><a href="home"><h3>Home</h3></a></li>
+                        <li class="nav-item"><a href="faculty"><h3>Faculty Section</h3></a></li>
+                        <li class="nav-item"><a href="logout"><h3>Logout</h3></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+                <div class="container">
+                    <div style="text-align: center;">
+                        <h1 class="lg-heading text-light">Marks</h1>     
+                            <table border="1" width='80%' style="margin: 100px auto;font-size: large;color: white;">
+                                <tr>
+                                    <th>Roll No</th>
+                                    <th>Name</th>
+                                    <th>Marks</th>
+                                    <th>Grade</th>
+                                </tr>
+                            {%  for i in res %}
+                                <tr>
+                                    <td>{{i.rollno}}</td>
+                                    <td>{{i.sname}}</td>
+                                    <td>{{i.marks}}</td>
+                                    {% if i.marks >= 90 %}
+                                    <td>A+</td>
+                                    {% elif i.marks >= 80 %}
+                                    <td>A</td>
+                                    {% elif i.marks >= 70 %}
+                                    <td>B+</td>
+                                    {% elif i.marks >= 60 %}
+                                    <td>B</td>
+                                    {% elif i.marks >= 50 %}
+                                    <td>C</td>
+                                    {% else %}
+                                    <td>D</td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                            </table>
+                    </div>
+                </div>
+
+{% endblock body %}

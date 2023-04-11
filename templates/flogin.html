@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <title>Faculty Portal</title>
+    <style>
+        .header{
+            position: relative;
+            height: 100vh;
+            background: url('{% static './img/bgimage7.jpg'%}'); 
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <div class="container">
+                    <h1 class="logo lg-heading text-light">
+                        Faculty Portal
+                    </h1>
+                    <ul class="nav-items">
+                        <li class="nav-item"><a href="home"><h3>Home</h3></a></li>
+                        <li class="nav-item"><a href="student"><h3>Student Section</h3></a></li>
+                        <li class="nav-item"><a href="logout"><h3>Logout</h3></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="header-content">
+                <<div class="header-content">
+                    <h1 class="lg-heading text-light">Faculty Section</h1>
+                    <a href="create" class="text-red"><h3>Create Student Account</h3></a>
+                    <a href="marks" class="text-red"><h3>Check Marks</h3></a>
+                    <a href="check" class="text-red"><h3>Update Marks</h3></a>
+                </div>  
+            </div>  
+    </body>
+</header>
+{% endblock body %}

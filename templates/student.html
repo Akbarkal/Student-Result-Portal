@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <style>
+        .header{
+            position: relative;
+            height: 100vh;
+            background: url('{% static './img/bgimage5.jpg'%}'); 
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <div class="container">
+                    <h1 class="logo lg-heading text-light">
+                        Student Portal
+                    </h1>
+                    <ul class="nav-items">
+                        <li class="nav-item"><a href="home"><h3>Home</h3></a></li>
+                        <li class="nav-item"><a href="faculty"><h3>Faculty Section</h3></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="header-content">
+                <h1 class="lg-heading text-light">Student Login</h1>
+                <form action="slogin" method="post">
+                {% csrf_token %}
+                    <input type="number" name="rollno" placeholder="Enter Roll No" required><br><br>
+                    <input type="password" name="spass" placeholder="Enter Password" required><br><br>
+                    <input type="submit" value="Login" class="btn btn-primary banner text-black">
+                </form>
+                <h2 class="text-red">{{error}}</h2>
+            </div>  
+    </body>
+</header>
+{% endblock body %}
+
